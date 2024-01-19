@@ -3,7 +3,7 @@ import {useUserStore} from '@/stores/user'
 
 const router = useRouter()
 const userStore = useUserStore()
-
+const hostname = useRuntimeConfig().public.url
 let email = ref('')
 let username = ref('')
 let password = ref('')
@@ -14,7 +14,7 @@ async function submitForm() {
 
     errors.value = []
 
-    await $fetch('http://127.0.0.1:8000/api/v1/token/login/', {
+    await $fetch(hostname + `/api/v1/token/login/`, {
         method: 'POST',
         body: {
             email: email.value,

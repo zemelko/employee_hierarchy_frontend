@@ -1,6 +1,6 @@
 <script setup>
     const router = useRouter()
-
+    const hostname = useRuntimeConfig().public.url
     let email = ref('')
     let username = ref('')
     let password1 = ref('')
@@ -12,7 +12,7 @@
 
         errors.value = []
 
-        await $fetch('http://127.0.0.1:8000/api/v1/users/', {
+        await $fetch(hostname + `/api/v1/users/`, {
             method: 'POST',
             body: {
                 email: email.value,

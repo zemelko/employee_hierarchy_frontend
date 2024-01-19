@@ -1,7 +1,7 @@
 <script setup>
 const route = useRoute()
-
-const { data: employee } = await useFetch('http://127.0.0.1:8000/api/v1/employees/' + route.params.id + '/')
+const hostname = useRuntimeConfig().public.url
+const { data: employee } = await useFetch(hostname + '/api/v1/employees/' + route.params.id + '/')
 </script>
 
 <template>

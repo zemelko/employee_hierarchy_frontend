@@ -5,5 +5,10 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@pinia/nuxt'
-  ]
+  ],
+  runtimeConfig: {
+    public: {
+      url: process.env.BACKEND_URL,
+    }
+  }
 })

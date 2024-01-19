@@ -37,8 +37,9 @@ const columns = [
     }
 ]
 
+const hostname = useRuntimeConfig().public.url
 // Fetching Data
-const { data: employees } = await useFetch(`http://127.0.0.1:8000/api/v1/employees`)
+const { data: employees } = await useFetch(hostname + `/api/v1/employees`)
 const employeesArray = toRaw(employees.value)
 
 // Selecting columns
